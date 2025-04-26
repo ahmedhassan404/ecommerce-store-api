@@ -12,7 +12,7 @@ const cartRoutes = require("./routes/cartRoute");
 const couponRoutes = require("./routes/couponRoute");
 const paymentRoutes = require("./routes/paymentRoute");
 const analyticsRoutes = require("./routes/analyticsRoutes");
-
+const categoryRoutes = require("./routes/categoryRoute");
 const app = express();
 
 // Middleware
@@ -29,6 +29,7 @@ app.use("/api/cart", cartRoutes);
 app.use("/api/coupons", couponRoutes);
 app.use("/api/payments", paymentRoutes);
 app.use("/api/payments", analyticsRoutes);
+app.use("/api/category", categoryRoutes);
 
 app.use(errorHandler);
 

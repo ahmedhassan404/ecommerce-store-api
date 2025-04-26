@@ -6,15 +6,28 @@ const checkRole = require("../middlewares/checkRole");
 const userRole = require("../utils/enums/userRole");
 const upload = require("../middlewares/upload");
 
-router.route("/products").get(verifyToken, productController.getProducts);
 
-// Upload multiple images (e.g., up to 5)
-router.route("/products").post(
-  verifyToken,
-  checkRole([userRole.ADMIN, userRole.SELLER]),
-  upload.array("images", 5), // validate date before added
-  productController.addProduct
-);
+router
+  .route("/products")
+  .get(
+    verifyToken,
+    checkRole([userRole.CUSTOMER]),
+    productController.getProducts
+  )
+  .post(
+    verifyToken,
+    checkRole([userRole.ADMIN, userRole.SELLER]),
+    upload.array("images", 5), // validate date before added
+    productController.addProduct
+  );
+
+// // Upload multiple images (e.g., up to 5)
+// router.route("/products").post(
+//   verifyToken,
+//   checkRole([userRole.ADMIN, userRole.SELLER]),
+//   upload.array("images", 5), // validate date before added
+//   productController.addProduct
+// );
 
 router
   .route("/seller/products")
