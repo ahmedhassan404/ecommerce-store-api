@@ -5,6 +5,7 @@ const verifyToken = require("../middlewares/verifyToken");
 const checkRole = require("../middlewares/checkRole");
 const userRole = require("../utils/enums/userRole");
 const categoryController = require("../controllers/categoryController");
+const productController = require("../controllers/productController");
 
 router
   .route("/")
@@ -21,5 +22,4 @@ router
     verifyToken,
     checkRole([userRole.ADMIN], categoryController.deleteCategory)
   );
-  
 module.exports = router;
