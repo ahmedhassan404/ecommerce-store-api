@@ -71,4 +71,5 @@ router
     productController.updateProductStatusToRejected
   );
 
+
 module.exports = router;

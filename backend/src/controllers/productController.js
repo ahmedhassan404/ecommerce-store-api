@@ -114,7 +114,11 @@ const addProduct = async (req, res, next) => {
 const getProductsByCategory = async (req, res, next) => {
   const { category } = req.params;
   try {
-    const products = await Product.find({ category });
+    const products = await Product.find({
+      category: category,
+      status: productStatus.APPROVED,
+      stock: { $gt: 0 },
+    });
     res.json({ products });
   } catch (error) {
     next(error);
