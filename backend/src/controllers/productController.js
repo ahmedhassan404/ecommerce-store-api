@@ -111,6 +111,9 @@ const addProduct = async (req, res, next) => {
   }
 };
 
+// @desc    get product
+// @route   GET /api/category/:category
+// @access  customer
 const getProductsByCategory = async (req, res, next) => {
   const { category } = req.params;
   try {

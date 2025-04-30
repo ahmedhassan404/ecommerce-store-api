@@ -21,4 +21,5 @@ router
     verifyToken,
     checkRole([userRole.ADMIN], categoryController.deleteCategory)
   );
+  
 module.exports = router;
