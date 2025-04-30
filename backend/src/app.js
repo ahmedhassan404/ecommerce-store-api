@@ -1,6 +1,6 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
-// const cors = require("cors");
+const cors = require("cors");
 // const bodyParser = require("body-parser");
 const path = require("path");
 require("dotenv").config();
@@ -19,6 +19,7 @@ const app = express();
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors({ origin: "", credentials: true }));
 
 connectDB();
 // Routes
