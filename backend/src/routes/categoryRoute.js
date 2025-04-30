@@ -17,7 +17,7 @@ router
   .get(verifyToken, categoryController.getCategories);
 
 router
-  .route("/categoryId")
+  .route("/:categoryId")
   .delete(
     verifyToken,
     checkRole([userRole.ADMIN], categoryController.deleteCategory)

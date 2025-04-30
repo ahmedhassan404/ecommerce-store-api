@@ -6,7 +6,6 @@ const checkRole = require("../middlewares/checkRole");
 const userRole = require("../utils/enums/userRole");
 const upload = require("../middlewares/upload");
 
-
 router
   .route("/products")
   .get(
@@ -71,5 +70,12 @@ router
     productController.updateProductStatusToRejected
   );
 
+router
+  .route("/category/:category")
+  .get(
+    verifyToken,
+    checkRole([userRole.CUSTOMER]),
+    productController.getProductsByCategory
+  );
 
 module.exports = router;
