@@ -1,0 +1,12 @@
+.product-image-container {
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image-container img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
