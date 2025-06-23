@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import axios from '../../utils/axios';
 import "./AdminDashboardPagestyle.css"; // This now uses our improved CSS
 
 function AdminDashboardPage() {

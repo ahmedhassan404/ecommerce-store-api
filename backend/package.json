@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "run:dev": "nodemon backend/src/server.js"
+    "run:dev": "nodemon src/server.js"
     
   },
   "keywords": [],
