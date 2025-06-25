@@ -1,9 +1,11 @@
 {
-    "rewrites": [{
-        "source": "/(.*)",
-        "destination": "/index.html"
+    "version": 2,
+    "builds": [{
+        "src": "src/server.js",
+        "use": "@vercel/node"
     }],
-    "buildCommand": "npm run build",
-    "outputDirectory": "build",
-    "framework": "create-react-app"
+    "routes": [{
+        "src": "/(.*)",
+        "dest": "src/server.js"
+    }]
 }
