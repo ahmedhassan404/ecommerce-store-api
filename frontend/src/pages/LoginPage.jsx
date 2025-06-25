@@ -16,7 +16,7 @@ function LoginPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/login", {
+      const res = await axios.post("/login", {
         ...values,
         rememberMe,
       }, { withCredentials: true });

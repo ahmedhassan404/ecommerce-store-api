@@ -57,7 +57,7 @@ function SignUpPage() {
     formData.append("profileImage", values.profileImage);
 
     try {
-      const res = await axios.post("http://localhost:5000/signup", formData, {
+      const res = await axios.post("/signup", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

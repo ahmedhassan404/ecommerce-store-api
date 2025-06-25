@@ -20,7 +20,7 @@ export default function CartPage() {
     try {
       setLoading(true);  // Show loading message
       // Call backend to get cart items, include cookies for user session
-      const res = await axios.get('http://localhost:5000/api/cart/products', {
+      const res = await axios.get('/api/cart/products', {
         withCredentials: true,
       });
       // Save received cart data, or empty list if none
@@ -41,7 +41,7 @@ export default function CartPage() {
     try {
       // Send updated quantity to server
       const response = await axios.put(
-        'http://localhost:5000/api/cart/product',
+        '/api/cart/product',
         { productId, quantity: newQuantity },
         { withCredentials: true }
       );
@@ -57,7 +57,7 @@ export default function CartPage() {
   const removeItem = async (productId) => {
     try {
       // Tell server to remove this product from cart
-      await axios.delete('http://localhost:5000/api/cart/product', {
+      await axios.delete('/api/cart/product', {
         data: { productId },
         withCredentials: true,
       });
@@ -73,7 +73,7 @@ export default function CartPage() {
   const clearCart = async () => {
     try {
       // Tell server to clear entire cart
-      await axios.delete('http://localhost:5000/api/cart', {
+      await axios.delete('/api/cart', {
         withCredentials: true,
       });
       setError(null);

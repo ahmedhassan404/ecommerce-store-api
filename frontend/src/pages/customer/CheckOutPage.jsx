@@ -19,7 +19,7 @@ export default function CheckoutPage() {
   // When the component loads, get cart items from backend
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/cart/products", { withCredentials: true })
+      .get("/api/cart/products", { withCredentials: true })
       .then(({ data }) => {
         // Save cart items, or empty if none
         setCartItems(data.cart || []);
@@ -73,13 +73,13 @@ export default function CheckoutPage() {
 
       // Create order
       await axios.post(
-        "http://localhost:5000/api/payment/create",
+        "/api/payment/create",
         { products, totalAmount },
         { withCredentials: true }
       );
 
       // Clear cart after successful order
-      await axios.delete('http://localhost:5000/api/cart', {
+      await axios.delete('/api/cart', {
         withCredentials: true,
       });
 

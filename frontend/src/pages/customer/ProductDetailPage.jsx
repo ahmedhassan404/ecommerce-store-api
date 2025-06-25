@@ -39,7 +39,7 @@ export default function ProductDetailPage() {
     const fetchProduct = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(`http://localhost:5000/api/products/${productId}`, {
+        const res = await axios.get(`/api/products/${productId}`, {
           withCredentials: true, // send cookies for authentication
         });
         if (res.data.success) {
@@ -66,7 +66,7 @@ export default function ProductDetailPage() {
     }
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/cart/add',
+        '/api/cart/add',
         { productId, quantity },
         { withCredentials: true }
       );

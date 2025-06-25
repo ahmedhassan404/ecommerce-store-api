@@ -21,7 +21,7 @@ export default function CustomerHomePage() {
   // Fetch categories from backend API
   const fetchCategories = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/category');
+      const res = await axios.get('/api/category');
       if (res.data.success && Array.isArray(res.data.data)) {
         setCategories(res.data.data);
       } else {
@@ -41,14 +41,14 @@ export default function CustomerHomePage() {
       let res;
       if (categoryId === 'ALL') {
         // Get all products
-        res = await axios.get('http://localhost:5000/api/products', {
+        res = await axios.get('/api/products', {
           withCredentials: true,
         });
         console.log('Products data:', res.data.data);
         setProducts(res.data.data || []);
       } else {
         // Get products by category id
-        res = await axios.get(`http://localhost:5000/api/category/${categoryId}`, {
+        res = await axios.get(`/api/category/${categoryId}`, {
           withCredentials: true,
         });
         console.log('Category products data:', res.data.data);

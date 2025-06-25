@@ -22,7 +22,7 @@ function SellerHome() {
     const fetchCategories = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:5000/api/category", {
+        const response = await axios.get("/api/category", {
           withCredentials: true,
         });
         const validCategories = response.data.data.filter(cat => cat._id && cat.name);
@@ -114,7 +114,7 @@ function SellerHome() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/products",
+        "/api/products",
         formData,
         {
           withCredentials: true,

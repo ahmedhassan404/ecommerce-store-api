@@ -16,7 +16,7 @@ function AdminDashboardPage() {
 
   const fetchProducts = () => {
     axios
-      .get("http://localhost:5000/api/admin/products", { withCredentials: true })
+      .get("/api/admin/products", { withCredentials: true })
       .then((res) => setProducts(res.data.data || []))
       .catch((err) => {
         console.error(err);
@@ -26,7 +26,7 @@ function AdminDashboardPage() {
 
   const fetchCategories = () => {
     axios
-      .get("http://localhost:5000/api/category", { withCredentials: true })
+      .get("/api/category", { withCredentials: true })
       .then((res) => setCategories(res.data.data || []))
       .catch((err) => {
         console.error(err);
@@ -36,7 +36,7 @@ function AdminDashboardPage() {
 
   const fetchAnalytics = () => {
     axios
-      .get("http://localhost:5000/api/analytics/dashboard", { withCredentials: true })
+      .get("/api/analytics/dashboard", { withCredentials: true })
       .then((res) => {
         if (res.data.success) {
           setAnalytics(res.data.data);
@@ -56,7 +56,7 @@ function AdminDashboardPage() {
 
   const handleStatusUpdate = (productId, action) => {
     axios
-      .patch(`http://localhost:5000/api/admin/products/${productId}/${action}`, {}, { withCredentials: true })
+      .patch(`/api/admin/products/${productId}/${action}`, {}, { withCredentials: true })
       .then((res) => {
         if (res.data.success) {
           setProducts((prev) => prev.filter((p) => p._id !== productId));
@@ -72,7 +72,7 @@ function AdminDashboardPage() {
 
   const handleDeleteCategory = (categoryId) => {
     axios
-      .delete(`http://localhost:5000/api/category/${categoryId}`, { withCredentials: true })
+      .delete(`/api/category/${categoryId}`, { withCredentials: true })
       .then((res) => {
         if (res.data.success) {
           setCategories((prev) => prev.filter((cat) => cat._id !== categoryId));
@@ -94,7 +94,7 @@ function AdminDashboardPage() {
     }
 
     axios
-      .post("http://localhost:5000/api/category/add", newCategory, { withCredentials: true })
+      .post("/api/category/add", newCategory, { withCredentials: true })
       .then((res) => {
         if (res.data.success) {
           setCategories((prev) => [...prev, res.data.data]);

@@ -15,7 +15,7 @@ const ProductDetailsPage = () => {
   const handleDeleteProduct = async () => {
     if (window.confirm("Are you sure you want to delete this product?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/products/${productId}`, {
+        await axios.delete(`/api/products/${productId}`, {
           withCredentials: true,
         });
         alert("Product deleted successfully!");
@@ -36,7 +36,7 @@ const ProductDetailsPage = () => {
       try {
         setLoading(true);
         
-        const response = await axios.get(`http://localhost:5000/api/seller/products`, {
+        const response = await axios.get(`/api/seller/products`, {
           withCredentials: true,
         });
         

@@ -14,7 +14,7 @@ function ProductAnalytics() {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:5000/api/seller/products", {
+        const response = await axios.get("/api/seller/products", {
           withCredentials: true,
         });
         setProducts(response.data.data);

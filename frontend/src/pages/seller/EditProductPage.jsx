@@ -25,7 +25,7 @@ const EditProductPage = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/products/${productId}`, {
+        const response = await axios.get(`/api/products/${productId}`, {
           withCredentials: true,
         });
         const { name, description, price, stock, category, images } = response.data.data;
@@ -40,7 +40,7 @@ const EditProductPage = () => {
 
     const fetchCategories = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/category", {
+        const response = await axios.get("/api/category", {
           withCredentials: true,
         });
         setCategories(response.data.data);
@@ -119,7 +119,7 @@ const EditProductPage = () => {
       }
 
       await axios.patch(
-        `http://localhost:5000/api/products/${productId}`,
+        `/api/products/${productId}`,
         productFormData,
         { withCredentials: true }
       );
@@ -234,7 +234,7 @@ const EditProductPage = () => {
                         {existingImages.map((img, index) => (
                           <div key={index} className="position-relative" style={{ width: '100px' }}>
                             <img
-                              src={img.url || `http://localhost:5000/${img.path}`}
+                              src={img.url}
                               alt={`Product ${index + 1}`}
                               className="img-thumbnail"
                             />

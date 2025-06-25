@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
 
   const checkAuthStatus = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/checkRole', {
+      const response = await axios.get('/checkRole', {
         withCredentials: true
       });
       if (response.data.success) {
@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      await axios.get('http://localhost:5000/logout', {
+      await axios.get('/logout', {
         withCredentials: true
       });
       setUserRole(null);
